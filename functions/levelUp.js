@@ -1,11 +1,11 @@
 /**
  * @param  {object} character
- * objeto que tiene los atrubutos de fuerza, defensa y vitalidad
+ * objeto que tiene los atrubutos de strength, defense y hp
  */
 function levelUp(character){
-    character.vitalidad += Math.floor(Math.random()*20);
-    character.fuerza += Math.floor(Math.random()*5);    
-    character.defensa += Math.floor(Math.random()*5);
+    character.hp += Math.floor(Math.random()*20);
+    character.strength += Math.floor(Math.random()*5);    
+    character.defense += Math.floor(Math.random()*5);
 }
 
 export default levelUp;

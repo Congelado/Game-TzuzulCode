@@ -1,6 +1,6 @@
-/**
+/** 
  * @param  {object} character
- * 
+ * objeto que tiene los atrubutos de fuerza, defense y vitalidad
  */
 function experience(character){
     let lv = character.level;

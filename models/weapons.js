@@ -26,4 +26,11 @@ const club = {
     critDmg: 20
 };
 
+const club2 = {
+    nombre: 'club2',
+    damage: 103,
+    critRate: 10,
+    critDmg: 20
+};
+
 export {battleAxe, battleKnife, longsword, club};

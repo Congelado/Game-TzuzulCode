@@ -1,21 +1,19 @@
 /**
  * @param  {object} character
- * character es un objeto que tiene los atributos de fuerza, defensa y vitalidad
- * @param  {object} weapon
- * weapon es un objeto que tiene los atributos de ataque, critRate y critDmg
+ * character es un objeto que tiene los atributos de strength, defense y hp
  * @param  {object} enemi
- * character es un objeto que tiene los atributos de fuerza, defensa y vitalidad
+ * character es un objeto que tiene los atributos de strength, defense y hp
  */
-function attack(character, enemi, weapon){
+function attack(character, enemi){
     const crit = prob => prob > Math.round(Math.random() * 100);
     let dmg = 0;
-    if(crit(weapon.critRate)){
-        dmg = (weapon.ataque*(0.07*character.fuerza) + (weapon.critDmg/100*weapon.ataque)).toFixed(0);
+    if(crit(character.weapon.critRate)){
+        dmg = (character.weapon.damage*(0.07*character.strength) + (character.weapon.critDmg/100*character.weapon.damage)).toFixed(0);
     }else{
-        dmg = (weapon.ataque *(0.07*character.fuerza)).toFixed(0);
+        dmg = (character.weapon.damage *(0.07*character.strength)).toFixed(0);
     }
 
-    return (dmg/(100/(100 + enemi.defensa))).toFixed(0);
+    return (dmg/(100/(100 + enemi.defense))).toFixed(0);
 }
 
 
