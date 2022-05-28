@@ -1,3 +1,7 @@
+/**
+ * @param  {object} character
+ * 
+ */
 function experience(character){
     let lv = character.level;
     let exp = 100;

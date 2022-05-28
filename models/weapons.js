@@ -1,4 +1,29 @@
-//const battleAxe = new Weapons('battle axe', 123, 50, 60);
-//const greatKnife = new  Weapons("great knife", 150, 60, 30);
-//const longsword = new  Weapons("longsword", 110, 40, 70);
-//const club = new  Weapons("club", 103, 10, 20);
+const battleAxe = {
+    nombre: 'battle axe',
+    damage: 123,
+    critRate: 50,
+    critDmg: 60
+};
+
+const battleKnife = {
+    nombre: 'battle knife',
+    damage: 150,
+    critRate: 60,
+    critDmg: 30
+};
+
+const longsword = {
+    nombre: 'longsword',
+    damage: 110,
+    critRate: 40,
+    critDmg: 70
+};
+
+const club = {
+    nombre: 'club',
+    damage: 103,
+    critRate: 10,
+    critDmg: 20
+};
+
+export {battleAxe, battleKnife, longsword, club};

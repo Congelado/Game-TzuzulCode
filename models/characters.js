@@ -3,7 +3,8 @@ const desgraciado = {
     fuerza: 10,
     defensa: 10,
     nombre: "desgraciado",
-    level: 1
+    level: 1,
+    experience: 0
 }
 
 const berserker = {
@@ -11,7 +12,8 @@ const berserker = {
     fuerza: 11,
     defensa: 15,
     nombre: "berserker",
-    level: 1
+    level: 1,
+    experience: 0
 }
 
 const asesino = {
@@ -19,7 +21,8 @@ const asesino = {
     fuerza: 21,
     defensa: 9,
     nombre: "asesino",
-    level: 1
+    level: 1,
+    experience: 0
 }
 
 const guerrero = {
@@ -27,7 +30,8 @@ const guerrero = {
     fuerza: 14,
     defensa: 11,
     nombre: "guerrero",
-    level: 1
+    level: 1,
+    experience: 0
 }
 
 
