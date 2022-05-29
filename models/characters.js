@@ -2,6 +2,7 @@ import { battleAxe, battleKnife, longsword, club } from "./weapons.js"
 
 const desgraciado = {
     hp: 400 + 10*2,
+    vitalidad: 10,
     strength: 10,
     defense: 10,
     nombre: "desgraciado",
@@ -12,6 +13,7 @@ const desgraciado = {
 
 const berserker = {
     hp: 400 + 14*2,
+    vitalidad: 14,
     strength: 11,
     defense: 15,
     nombre: "berserker",
@@ -22,6 +24,7 @@ const berserker = {
 
 const asesino = {
     hp: 400 + 10*2,
+    vitalidad: 10,
     strength: 21,
     defense: 9,
     nombre: "asesino",
@@ -32,6 +35,7 @@ const asesino = {
 
 const guerrero = {
     hp: 400 + 15*2,
+    vitalidad: 15,
     strength: 14,
     defense: 11,
     nombre: "guerrero",

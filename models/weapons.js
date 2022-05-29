@@ -26,11 +26,12 @@ const club = {
     critDmg: 20
 };
 
-const club2 = {
-    nombre: 'club2',
-    damage: 103,
-    critRate: 10,
-    critDmg: 20
+const claws = {
+    nombre: 'claws',
+    damage: 100,
+    critRate: 20,
+    critDmg: 30
 };
 
-export {battleAxe, battleKnife, longsword, club};
+
+export  {battleAxe, battleKnife, longsword, club, claws};

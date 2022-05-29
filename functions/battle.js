@@ -1,20 +1,38 @@
-const battle = (personaje, enemigo) => {
+import attack from "./attack.js";
+import experience from "./experience.js";
+
+function battle(personaje, enemigo){
+    let nivel = personaje.level;
     let turn = 0;
-    while(personaje.vitalidad > 0 && enemigo.vitalidad > 0){
-        turn++;
-        if(turn%2 == 0){
-            enemigo.hp() -= personaje.damage(enemigo.weapon);
-            console.log(`${personaje.nombre} ataca con ${personaje.weapon.nombre} y le hace ${personaje.damage(enemigo.weapon)} de daño`);
-            console.log(`${enemigo.nombre} tiene ${enemigo.hp()} de vitalidad`);
-        }else{
-            personaje.hp() -= enemigo.damage(personaje.weapon);
-            console.log(`${enemigo.nombre} ataca con ${enemigo.weapon.nombre} y le hace ${enemigo.damage(personaje.weapon)} de daño`);
-            console.log(`${personaje.nombre} tiene ${personaje.hp()} de vitalidad`);
+    while(personaje.hp > 0 && enemigo.hp > 0){
+            turn++;
+            if(turn%2 != 0){
+                let dmg = attack(personaje, enemigo);
+                enemigo.hp -= dmg;
+                console.log(`%c${personaje.nombre} ataca con ${personaje.weapon.nombre} y le hace ${dmg} de dmg`, `color: red`);
+                console.log(`%c${enemigo.nombre} tiene ${enemigo.hp} de hp`,`color: blue`);
+            }else{
+                let dmg = attack(enemigo, personaje);
+                personaje.hp -= dmg
+                console.log(`%c${enemigo.nombre} ataca con ${enemigo.weapon.nombre} y le hace ${dmg} de dmg`, `color: blue`);
+                console.log(`%c${personaje.nombre} tiene ${personaje.hp} de hp`, `color: red`);
+            }
+            let x =  alert()
         }
+    if(personaje.hp <= 0){
+        console.log(`%c${personaje.nombre} ha muerto`, `color: grey`);
+        console.log('GAME OVER');
     }
-    if(personaje.vitalidad <= 0){
-        console.log(`${personaje.nombre} ha muerto`);
-    }else{
-        console.log(`${enemigo.nombre} ha muerto`);
+    else{
+        console.log(`%c${enemigo.nombre} ha muerto`, `color: green`);
+        personaje.experience += enemigo.experience;
+        experience(personaje);
+        if ( nivel !== personaje.level){
+            console.log(`%c${personaje.nombre} subio a nivel ${personaje.level}`, `color: green`);
+        }
+           	
     }
+    
 }
+
+export default battle;

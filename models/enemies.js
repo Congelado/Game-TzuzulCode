@@ -1,15 +1,23 @@
-import attack from "../functions/attack.js";
-import { desgraciado } from "./characters.js";
-import { club } from "./weapons.js"
+import { club, claws } from "./weapons.js"
 
 const minotaur = {
-    hp: 100,
+    hp: 900,
     strength: 10,
     defense: 10,
-    name: 'minotaur', 
+    nombre: 'minotaur', 
     level: 1,
     experience: 100,
     weapon: club
 }
-console.log(minotaur.weapon.ataque)
-console.log(attack(minotaur, desgraciado));
+
+const harpy = {
+    hp: 1100,
+    strength: 20,
+    defense: 10,
+    nombre: 'harpy',
+    level: 2,
+    experience: 200,
+    weapon: claws
+}
+
+export {minotaur, harpy};
