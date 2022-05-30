@@ -56,7 +56,7 @@ while (true){
 character.nombre = username;
 
 for(let i in listaClases){
-    console.log("%cnombre: " + listaClases[i].weapon.nombre, "color:" + listaColor[i]);
+    console.log("%c" + listaClases[i].weapon.nombre, "color:" + listaColor[i]);
     console.log("%cdano: " + listaClases[i]. weapon.damage, "color:" + listaColor[i]);
     console.log("%cprobabilidad de critico: " + listaClases[i].weapon.critRate, "color:" + listaColor[i]);
     console.log("%cdano critico: " + listaClases[i].weapon.critDmg, "color:" + listaColor[i]);
@@ -110,5 +110,5 @@ while(true){
         }
 }
 battle(character, enemigo);
-console.log("%c"+enemigo+" ha sido derrotado", "color: #08f7fe;");
-console.log("%cFELICIDADES valeroso heroe pudiste derrotar al mas debil de las criaturas *clap* *clap* *clap*", "color: #08f7fe;");
+console.log("%c" + enemigo.nombre + " ha sido derrotado", "color: #08f7fe;");
+console.log("%cFELICIDADES, valeroso heroe pudiste derrotar al mas debil de las criaturas *clap* *clap* *clap*", "color: #08f7fe;");
