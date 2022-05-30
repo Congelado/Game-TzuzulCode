@@ -11,28 +11,27 @@ function battle(personaje, enemigo){
     let nivel = personaje.level;
     let turn = 1;
     while(personaje.hp > 0 && enemigo.hp > 0){
-            if(turn%2 != 0){
-                let dmg = attack(personaje, enemigo);
-                enemigo.hp -= dmg;
+        if(turn%2 != 0){
+            let dmg = attack(personaje, enemigo);
+            enemigo.hp -= dmg;
 
-                console.log(`%c${personaje.nombre} ataca con ${personaje.weapon.nombre} y le hace ${dmg} de dmg`, `color: red`);
-                console.log(`%c${enemigo.nombre} tiene ${enemigo.hp} de hp`,`color: blue`);
-            }else{
-                let dmg = attack(enemigo, personaje);
-                personaje.hp -= dmg
+            console.log(`%c${personaje.nombre} ataca con ${personaje.weapon.nombre} y le hace ${dmg} de dmg`, `color: red`);
+            console.log(`%c${enemigo.nombre} tiene ${enemigo.hp} de hp`,`color: blue`);
+        }else{
+            let dmg = attack(enemigo, personaje);
+            personaje.hp -= dmg
 
-                console.log(`%c${enemigo.nombre} ataca con ${enemigo.weapon.nombre} y le hace ${dmg} de dmg`, `color: blue`);
-                console.log(`%c${personaje.nombre} tiene ${personaje.hp} de hp`, `color: red`);
-            }
-            turn++;
-            let x =  alert()
+            console.log(`%c${enemigo.nombre} ataca con ${enemigo.weapon.nombre} y le hace ${dmg} de dmg`, `color: blue`);
+            console.log(`%c${personaje.nombre} tiene ${personaje.hp} de hp`, `color: red`);
         }
+        turn++;
+        let x =  alert()
+    }
     if(personaje.hp <= 0){
         console.log(`%c${personaje.nombre} ha muerto`, `color: grey`);
         console.log('GAME OVER');
         exit();
-    }
-    else{
+    }else{
         console.log(`%c${enemigo.nombre} ha muerto`, `color: green`);
         personaje.experience += enemigo.experience;
         experience(personaje);

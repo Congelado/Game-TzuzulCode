@@ -8,6 +8,7 @@ let listaColor = ["red", "blue", "green", "yellow"];
 let listaEnemigos = [minotaur, harpy];
 
 console.log("%cBienvenido al coliseo de los caidos", "color: #08f7fe;");
+
 let username
 while(true){
     try{
@@ -83,6 +84,7 @@ switch(arma){
         console.log("%c"+arma+" no es un arma valida", "color: #ff1100");
     }
 }
+
 character.weapon = arma;    
 
 console.log("%cOh, valeroso heroe " + character.nombre +", que porta un/a " + character.weapon.nombre + ".\nEn este calabozo de los caidos existen infinidad de criaturas tanto buenas como malas, como es tu primera vez, vamos con una batalla de entrenamiento\nselecciona tu enemigo", "color: #08f7fe;");
@@ -109,6 +111,8 @@ while(true){
             console.log("%c"+enemigo+" no es un enemigo valido", "color: #ff1100");
         }
 }
+
 battle(character, enemigo);
+
 console.log("%c" + enemigo.nombre + " ha sido derrotado", "color: #08f7fe;");
 console.log("%cFELICIDADES, valeroso heroe pudiste derrotar al mas debil de las criaturas *clap* *clap* *clap*", "color: #08f7fe;");
