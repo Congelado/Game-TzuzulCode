@@ -43,6 +43,4 @@ const guerrero = {
     experience: 0,
     weapon: longsword
 }
-
-
 export {desgraciado, berserker, asesino, guerrero};

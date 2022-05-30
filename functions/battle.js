@@ -36,7 +36,7 @@ function battle(personaje, enemigo){
         console.log(`%c${enemigo.nombre} ha muerto`, `color: green`);
         personaje.experience += enemigo.experience;
         experience(personaje);
-        if ( nivel !== personaje.level){    º
+        if (nivel !== personaje.level){
             console.log(`%c${personaje.nombre} subio a nivel ${personaje.level}`, `color: green`);
         }
     }

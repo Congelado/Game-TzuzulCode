@@ -20,7 +20,7 @@ const longsword = {
 };
 
 const club = {
-    nombre: 'club',
+    nombre: 'stick',
     damage: 103,
     critRate: 10,
     critDmg: 20
