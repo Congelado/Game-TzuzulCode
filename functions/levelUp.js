@@ -9,6 +9,7 @@ function levelUp(character){
     character.level++;
     character.experience = 0;
     character.hp = 400 + character.vitalidad*2;
+    return void 0;
 }
 
 export default levelUp;

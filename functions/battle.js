@@ -30,7 +30,7 @@ function battle(personaje, enemigo){
     if(personaje.hp <= 0){
         console.log(`%c${personaje.nombre} ha muerto`, `color: grey`);
         console.log('GAME OVER');
-        return 1
+        exit();
     }
     else{
         console.log(`%c${enemigo.nombre} ha muerto`, `color: green`);
@@ -40,6 +40,7 @@ function battle(personaje, enemigo){
             console.log(`%c${personaje.nombre} subio a nivel ${personaje.level}`, `color: green`);
         }
     }
+    return void 0;
 }
 
 export default battle;

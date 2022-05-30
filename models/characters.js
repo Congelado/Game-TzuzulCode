@@ -1,4 +1,4 @@
-import { battleAxe, battleKnife, longsword, club } from "./weapons.js"
+import { battleAxe, battleKnife, longsword, stick } from "./weapons.js"
 
 const desgraciado = {
     hp: 400 + 10*2,
@@ -8,7 +8,7 @@ const desgraciado = {
     nombre: "desgraciado",
     level: 1,
     experience: 0,
-    weapon: club
+    weapon: stick
 }
 
 const berserker = {

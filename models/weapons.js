@@ -19,7 +19,7 @@ const longsword = {
     critDmg: 70
 };
 
-const club = {
+const stick = {
     nombre: 'stick',
     damage: 103,
     critRate: 10,
@@ -34,4 +34,4 @@ const claws = {
 };
 
 
-export  {battleAxe, battleKnife, longsword, club, claws};
+export  {battleAxe, battleKnife, longsword, stick, claws};

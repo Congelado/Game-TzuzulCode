@@ -9,5 +9,7 @@ function experience(character){
     if(character.experience >= exp){
         levelUp(character);
     }
+    return void 0;
 }
+
 export default experience;

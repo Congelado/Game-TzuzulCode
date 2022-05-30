@@ -1,4 +1,4 @@
-import { club, claws } from "./weapons.js"
+import { stick, claws } from "./weapons.js"
 
 const minotaur = {
     hp: 900,
@@ -7,7 +7,7 @@ const minotaur = {
     nombre: 'minotaur', 
     level: 1,
     experience: 100,
-    weapon: club
+    weapon: stick
 }
 
 const harpy = {
