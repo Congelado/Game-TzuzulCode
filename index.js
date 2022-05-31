@@ -112,7 +112,7 @@ while(true){
         }
 }
 
-battle(character, enemigo);
-
-console.log("%c" + enemigo.nombre + " ha sido derrotado", "color: #08f7fe;");
-console.log("%cFELICIDADES, valeroso heroe pudiste derrotar al mas debil de las criaturas *clap* *clap* *clap*", "color: #08f7fe;");
+if(battle(character, enemigo)){
+    console.log("%c" + enemigo.nombre + " ha sido derrotado", "color: #08f7fe;");
+    console.log("%cFELICIDADES, valeroso heroe pudiste derrotar al mas debil de las criaturas *clap* *clap* *clap*", "color: #08f7fe;");
+}
