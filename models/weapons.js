@@ -1,37 +1,30 @@
-const battleAxe = {
-    nombre: 'battle axe',
-    damage: 123,
-    critRate: 50,
-    critDmg: 60
-};
+class Weapon{
+    constructor(nombre, damage, critRate, critDmg){
+        this.nombre = nombre
+        this.damage = damage
+        this.critRate = critRate
+        this.critDmg = critDmg
+    }
 
-const battleKnife = {
-    nombre: 'battle knife',
-    damage: 150,
-    critRate: 60,
-    critDmg: 30
-};
+    crit(){
+        return this.critRate >= Math.round(Math.random() * 100);
+    }
+    
+    mostrar_arma(){
+        console.table(this)
+    }
 
-const longsword = {
-    nombre: 'longsword',
-    damage: 110,
-    critRate: 40,
-    critDmg: 70
-};
+}
 
-const stick = {
-    nombre: 'stick',
-    damage: 103,
-    critRate: 10,
-    critDmg: 20
-};
+const battleAxe = new Weapon('battle axe',150,60);
 
-const claws = {
-    nombre: 'claws',
-    damage: 100,
-    critRate: 20,
-    critDmg: 30
-};
+const battleKnife = new Weapon('battle knife',150,60,30);
+
+const longsword = new Weapon('longsword',110,40,70);
+
+const stick = new Weapon('stick',103,10,20);
+
+const claws = new Weapon('claws',100,20,30);
 
 
 export  {battleAxe, battleKnife, longsword, stick, claws};
