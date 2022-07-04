@@ -19,14 +19,14 @@ class Personaje {
     this.color = color
   }
 
-  attack(enemi) {
+  attack(enemi, dano) {
     let dmg;
     this.weapon.crit() ? dmg = (this.weapon.damage * (0.07 * this.strength) + (this.weapon.critDmg / 100) * this.weapon.damage): dmg = (this.weapon.damage * (0.07 * this.strength));
 
-    return (dmg.toFixed(0) / (100 / (100 + enemi.defense))).toFixed(0);
+    return (dmg.toFixed(0) / (100 / (100 + enemi.defense))+dano).toFixed(0);
   }
 
-  coqueado(desmayado) {
+  noqueado(desmayado) {
     if (this.hp <= 0) {
       this.hp = 0;
       console.log(desmayado, "esta fuera de combate");
@@ -66,11 +66,11 @@ class Personaje {
   }
 }
 
-const Charmander = new Personaje(50, 40, 50, "Charmander", 1, 0, stick, poke004[0]);
-const Gastly = new Personaje(10, 20, 20, "Gastly", 1, 0, battleAxe, poke092[0]);
-const Pikachu = new Personaje(40, 40, 40, "Pikachu", 1, 0, battleKnife, poke025[0]);
+const Charmander = new Personaje(50, 40, 50, "Charmander", 1, 0, stick, poke004[0],"white");
+const Gastly = new Personaje(10, 20, 20, "Gastly", 1, 0, battleAxe, poke092[0],"white");
+const Pikachu = new Personaje(40, 40, 40, "Pikachu", 1, 0, battleKnife, poke025[0],"white");
 
-const Eevee = new Personaje(40, 40, 40, "Eevee", 1, 100, claws, poke133[0]);
-const Snorlax = new Personaje(50, 50, 50, "Snorlax", 2, 200, stick, poke143[0]);
+const Eevee = new Personaje(40, 40, 40, "Eevee", 1, 100, claws, poke133[0],"white");
+const Snorlax = new Personaje(50, 50, 50, "Snorlax", 2, 200, stick, poke143[0],"white");
 
 export { Charmander, Gastly, Pikachu, Eevee, Snorlax};

@@ -21,6 +21,7 @@ let menu =`
 ║                                        ║
 ╚════════════════════════════════════════╝
 `
+
 console.log("%c"+title, "color: peru")
 
 console.log(menu)
@@ -29,8 +30,14 @@ let konami = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'Arro
 let contador = 0;
 
 let keyHandler = event => {
+	console.log(event.key)
 	if (konami.indexOf(event.key) < 0 || event.key !== konami[contador]) {
-		console.log("A")
+		console.clear()
+
+		console.log("%c"+title, "color: peru")
+
+		console.log(menu)
+
         contador = 0;
 		return;
 	}

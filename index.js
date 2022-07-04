@@ -7,11 +7,12 @@ import opciones from "./assets/opciones.js"
 import menu_colores from "./assets/menu_colores.js"
 
 function colorido(){
-    console.log("elige uno de estos 4 colore", "blue", "red", "peru", "white")
+    console.log("elige uno de estos 4 colores: blue, red, peru, white")
+
     let color_opcion= prompt("").toLowerCase()
-    if (["blue", "red", "peru", "white"].includes(color_opcion)){
-        return color_opcion
-    }
+
+    let lista = ["blue", "red", "peru", "white"]
+    return [color_opcion,lista]
 }
 
 
@@ -19,7 +20,7 @@ while(true){
     console.log("%c"+title, "color: yellow")
 
     console.log(menu)
-    
+
     let respuesta_menu = prompt("").toLowerCase()
     
     if (respuesta_menu === "opciones"){
@@ -28,13 +29,13 @@ while(true){
             let respuesta_opciones = prompt("").toLowerCase()
             
             if (respuesta_opciones === "velocidad del texto"){
-                console.log("a que velocidad le gustaria", "x2", "x1","x0.5","?")
+                console.log("a que velocidad le gustaria: x2, x1, x0.5?")
     
                 let velocidad_opciones = prompt("").toLowerCase()
-                velocidad_opciones[0] == "x"? velocidad_opciones= Number(velocidad.slice(1)): velocidad_opciones= Number(velocidad)
+                velocidad_opciones[0] == "x"? velocidad_opciones= Number(velocidad_opciones.slice(1)): velocidad_opciones= Number(velocidad_opciones)
                 
-                if(velocidad in [2, 1, 0.5]){
-                    console.log(velocidad_opciones)
+                if(velocidad_opciones in [2, 1, 0.5]){
+                    var velocidad = velocidad_opciones
                 }else{
                     console.log("opcion incorrecta")
                 }
@@ -44,41 +45,56 @@ while(true){
                 let colores_personaje = prompt("").toLowerCase()
 
                 if(colores_personaje === "enemigo"){
-                    let color_e = colorido()
+                    let lista = colorido()
+                    if(lista[1].includes(lista[0])){
+                        var color_e = lista[0]
+                    }else{
+                        console.log("no existe ese color")
+                    }
 
                 }else if(colores_personaje === "narrador"){
-                    let color_n = colorido()
+                    let lista = colorido()
+                    if(lista[1].includes(lista[0])){
+                        var color_n = lista[0]
+                    }else{
+                        console.log("no existe ese color")
+                    }
 
                 }else if(colores_personaje === "personaje"){
-                    let color_p = colorido()
-
+                    let lista = colorido()
+                    if(lista[1].includes(lista[0])){
+                        var color_p = lista[0]
+                    }else{
+                        console.log("no existe ese color")
+                    }
                 }
-            }else if(respuesta_menu === "salir"){
+
+            }else if(respuesta_opciones === "salir"){
                 break
             }
         }
         
     }else if(respuesta_menu === "comenzar juego"){
-        let listaClases = [Charmander, Gastly, Pikachu];
-        let listaArmas = [battleAxe, battleKnife, longsword, stick]
-        let listaEnemigos = [Eevee, Snorlax];
+        let lista_pokemon = [Charmander, Gastly, Pikachu];
+        let lislista_armas = [battleAxe, battleKnife, longsword, stick]
+        let lista_enemigos = [Eevee, Snorlax];
 
         if(typeof color_n === "undefined"){
-            let color_n = " #08f7fe"
+           var color_n = " #08f7fe"
         }
         if(typeof color_p === "undefined"){
-            let color_p = "white"
+            var color_p = "white"
         }
         if(typeof color_e === "undefined"){
-            let color_e = "white"
+            var color_e = "white"
         }
 
-        console.log("%cBienvenido al coliseo de los pokemons caidos", "color: "+ typeof color_n ==="undefined"? color_n:"#08f7fe");
+        console.log("%cBienvenido al coliseo de los pokemons", "color: "+ color_n);
 
         let username;
         
         while(true){
-            try{
+            try       {
                 username = prompt("Ingrese su nombre valeroso heroe:").toLowerCase();
                 let descision = confirm("estas seguro que quiere llamarse? " + username);
 
@@ -91,7 +107,7 @@ while(true){
 
         console.log("%cBienvenido "+ username, "color: " + color_n);
                                                                                                                                                                                                         
-        for(let i in listaClases){
+        for(let i of lista_pokemon){
             i.color = color_p
             i.mostrarPersonaje()
             
@@ -103,22 +119,21 @@ while(true){
             character = prompt("Ingrese un pokemon(Charmander, Gastly, Pikachu): ").toLowerCase();
             switch(character){
                 case "charmander":
-                    character = listaClases[0];
+                    character = lista_pokemon[0];
                     break tag;
                 case "gastly":
-                    character = listaClases[1];
+                    character = lista_pokemon[1];
                     break tag;
                 case "pikachu":
-                    character = listaClases[2];
+                    character = lista_pokemon[2];
                     break tag;
                 default:
                     console.log("%c"+character+" no es una clase valida", "color: #ff1100");
             }
         }
-
         character.nombre = username;
 
-        for(let i in listaArmas){
+        for(let i of lislista_armas){
             i.mostrar_arma()
         }
 
@@ -149,9 +164,9 @@ while(true){
 
         character.weapon = arma;    
 
-        console.log("%cOh, valeroso heroe " + character.nombre +", que porta un/a " + character.weapon.nombre + ".\nEn este calabozo de los caidos existen infinidad de criaturas tanto buenas como malas, como es tu primera vez, vamos con una batalla de entrenamiento\nselecciona tu enemigo", "color: #08f7fe;");
+        console.log("%cOh, valeroso heroe " + character.nombre +", que porta un/a " + character.weapon.nombre + ".\nEn este calabozo de los caidos existen infinidad de criaturas tanto buenas como malas, como es tu primera vez, vamos con una batalla de entrenamiento\nselecciona tu enemigo", "color: "+color_n);
 
-        for(let i in listaEnemigos){
+        for(let i of lista_enemigos){
             i.color = color_e
             i.mostrarPersonaje()
         }
@@ -162,19 +177,20 @@ while(true){
             enemigo = prompt("Ingrese el enemigo que desea atacar(eevee, snorlax): ").toLowerCase();
             switch(enemigo){
                 case "eevee":
-                    enemigo = minotaur;
+                    enemigo = "eevee";
                     break tag3;
                 case "snorlax":
-                    enemigo = harpy;
+                    enemigo = "snorlax";
                     break tag3;
                 default:
                     console.log("%c"+enemigo+" no es un enemigo valido", "color: #ff1100");
                 }
         }
 
-        if(Stage.battle(character, enemigo)){
-            console.log("%c" + enemigo.nombre + " ha sido derrotado", "color: #08f7fe;");
-            console.log("%cFELICIDADES, valeroso heroe pudiste derrotar al mas debil de las criaturas *clap* *clap* *clap*", "color: #08f7fe;");
+        let stage_one = new Stage(false, 0)
+        if(stage_one.battle(character, enemigo,tiempo)){
+            console.log("%c" + enemigo.nombre + " ha sido derrotado", "color: "+color_n);
+            console.log("%cFELICIDADES, valeroso heroe pudiste derrotar al mas debil de las criaturas *clap* *clap* *clap*", "color: "+color_n);
         }
     }else if(respuesta_menu === "salir"){
         break

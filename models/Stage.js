@@ -3,21 +3,20 @@ class Stage{
         this.turn = turn
         this.dmg = dmg
     }  
-    async battle(personaje, enemigo){
-        return await new Promise(res =>{
-
+    battle(personaje, enemigo){
+        return new Promise(res =>{
             let intervalId = setInterval(() => {
 
                 this.turn ? personaje.attack(enemigo, this.dmg) : enemigo.attack(personaje, this.dmg)
-
-                if (personaje.coqueado()|| enemigo.coqueado()){
+                
+                if (personaje.noqueado()|| enemigo.noqueado()){
                     clearInterval(intervalId)
                     res(this.turn)
                 }
                 
                 this.turn = !this.turn
 
-            }, 500);
+            }, 1000);
         })
     }  
 }
