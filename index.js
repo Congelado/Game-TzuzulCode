@@ -1,10 +1,11 @@
 import Stage from "./models/Stage.js"
-import { Charmander, Gastly, Pikachu, Eevee, Snorlax } from "./models/Personaje.js";
+import { Charmander, Gastly, Pikachu, Mew, Eevee, Snorlax } from "./models/Personaje.js";
 import { battleAxe, battleKnife, longsword, stick, claws } from "./models/Weapons.js";
 import  title  from "./assets/title.js";
 import menu from "./assets/menu.js"
 import opciones from "./assets/opciones.js"
 import menu_colores from "./assets/menu_colores.js"
+import menu_contraseñas from "./assets/menu_conraseñas.js";
 
 function colorido(){
     console.log("elige uno de estos 4 colores: blue, red, peru, white")
@@ -127,6 +128,24 @@ while(true){
                 case "pikachu":
                     character = lista_pokemon[2];
                     break tag;
+                case "???":
+                    let respuesta_contraseña;
+            
+                    console.log(menu_contraseñas);
+              
+                    respuesta_contraseña = prompt("Ingrese una contraseña:").toLowerCase();
+              
+                    if (respuesta_contraseña === "mew") {
+                        lista_pokemon.push(Mew);
+              
+                        console.log("Felicidades has desbloqueado a Mew");
+                        Mew.mostrarPersonaje();
+                        character = lista_pokemon[3];
+                        break tag;
+                    } else {
+                        console.log("%cIngrese una contraseña valida", "color: #ff1100");; 
+                    };
+                    break;
                 default:
                     console.log("%c"+character+" no es una clase valida", "color: #ff1100");
             }
@@ -194,5 +213,7 @@ while(true){
         }
     }else if(respuesta_menu === "salir"){
         break
-    }
-}
+    }else {
+        console.log("%cIngrese una opcion valida", "color: #ff1141")
+      };
+};
