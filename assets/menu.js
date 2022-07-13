@@ -4,9 +4,11 @@ let menu =`
 ║                                        ║
 ║             comenzar juego             ║
 ║                                        ║
-║                opciones                ║
+║               opciones                 ║
 ║                                        ║
-║                 salir                  ║
+║                salir                   ║
+║                                        ║
+║               password                 ║
 ║                                        ║
 ╚════════════════════════════════════════╝
 `

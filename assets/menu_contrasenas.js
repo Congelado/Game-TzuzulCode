@@ -1,7 +1,7 @@
-let menu_contraseñas = `
+let menu_contrasenas = `
 ╔════════════════════════════════════════╗
 ║         *Menu de Contraseñas*          ║
 ╚════════════════════════════════════════╝
 `;
 
-export default menu_contraseñas;
+export default menu_contrasenas;

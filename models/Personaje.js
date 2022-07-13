@@ -4,7 +4,7 @@ import { poke092 } from "../assets/gastly.js";
 import { poke025 } from "../assets/pikachu.js";
 import { poke133 } from "../assets/eevee.js";
 import { poke143 } from "../assets/snorlax.js";
-import { poke151 } from "../assets/mew.js"
+import { poke151 } from "../assets/mew.js";
 
 class Personaje {
   constructor(vital, stren, def, name, lv, exp, arm, imagen, color="white") {
@@ -20,18 +20,32 @@ class Personaje {
     this.color = color
   }
 
-  attack(enemi, dano) {
+  attack(enemi, dano=0, color="white") {
     let dmg;
-    this.weapon.crit() ? dmg = (this.weapon.damage * (0.07 * this.strength) + (this.weapon.critDmg / 100) * this.weapon.damage): dmg = (this.weapon.damage * (0.07 * this.strength));
+    if (this.weapon.crit()){
+      dmg = (this.weapon.damage * (0.07 * this.strength) + (this.weapon.critDmg / 100) * this.weapon.damage)
+    }
+    else{
+      dmg = (this.weapon.damage * (0.07 * this.strength));
+    }
 
-    return (dmg.toFixed(0) / (100 / (100 + enemi.defense))+dano).toFixed(0);
+    let golpe = (dmg.toFixed(0) / (100 / (100 + enemi.defense))+dano).toFixed(0);
+
+    enemi.hp = enemi.hp - golpe
+
+    console.log('%c'+ this.nombre + ' ataca a ' + enemi.nombre + ' quitandole ' + golpe + ' puntos de vida', 'color: '+ color)
+    console.log(enemi.hp)
+
+
+    if (this.hp < 0) {
+      this.hp = 0;
+      console.log(this.nombre, "esta fuera de combate");
+    }
+  
   }
 
-  noqueado(desmayado) {
-    if (this.hp <= 0) {
-      this.hp = 0;
-      console.log(desmayado, "esta fuera de combate");
-    }
+  noqueado() {
+    return this.hp === 0
   }
 
   levelUp() {
@@ -70,10 +84,9 @@ class Personaje {
 const Charmander = new Personaje(50, 40, 50, "Charmander", 1, 0, stick, poke004[0],"white");
 const Gastly = new Personaje(10, 20, 20, "Gastly", 1, 0, battleAxe, poke092[0],"white");
 const Pikachu = new Personaje(40, 40, 40, "Pikachu", 1, 0, battleKnife, poke025[0],"white");
-const Mew = new Personaje(50, 50, 50, "Mew", 1, 0, battleKnife, poke151[0],"white");
-
+const Mew = new Personaje(50,50,50,"Mew",1,0,claws, poke151[0], "white");
 
 const Eevee = new Personaje(40, 40, 40, "Eevee", 1, 100, claws, poke133[0],"white");
 const Snorlax = new Personaje(50, 50, 50, "Snorlax", 2, 200, stick, poke143[0],"white");
 
-export { Charmander, Gastly, Pikachu, Mew, Eevee, Snorlax};
+export { Charmander, Gastly, Pikachu, Eevee, Snorlax, Mew};
