@@ -1,22 +1,28 @@
+import { Mew, Snorlax } from "./Personaje.js";
+
 class Stage{
-     constructor(turn=true, dmg=0){
+     constructor(turn=false, dmg=0){
         this.turn = turn
         this.dmg = dmg
     }  
-    battle(personaje, enemigo){
-        return new Promise(res =>{
+    async battle(personaje, enemigo, colora, colorb){
+        return new Promise(res => {
             let intervalId = setInterval(() => {
 
-                this.turn ? personaje.attack(enemigo, this.dmg) : enemigo.attack(personaje, this.dmg)
-                
-                if (personaje.noqueado()|| enemigo.noqueado()){
-                    clearInterval(intervalId)
-                    res(this.turn)
+                if(!this.turn){
+                    personaje.attack(enemigo, this.dmg, colora);
+                }else{
+                    enemigo.attack(personaje, this.dmg, colorb);
+                }
+
+                if (personaje.noqueado() || enemigo.noqueado()) {
+                    res(this.turn);
+                    clearInterval(intervalId);
                 }
                 
-                this.turn = !this.turn
+                this.turn = !this.turn;
 
-            }, 1000);
+            }, 2000);
         })
     }  
 }

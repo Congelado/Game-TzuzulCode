@@ -16,15 +16,15 @@ class Weapon{
 
 }
 
-const battleAxe = new Weapon('battle axe',150,60);
+const battleAxe = new Weapon('battle axe',100,60);
 
-const battleKnife = new Weapon('battle knife',150,60,30);
+const battleKnife = new Weapon('battle knife',100,60,30);
 
-const longsword = new Weapon('longsword',110,40,70);
+const longsword = new Weapon('longsword',60,40,70);
 
-const stick = new Weapon('stick',103,10,20);
+const stick = new Weapon('stick',53,10,20);
 
-const claws = new Weapon('claws',100,20,30);
+const claws = new Weapon('claws',50,20,30);
 
 
 export  {battleAxe, battleKnife, longsword, stick, claws};
